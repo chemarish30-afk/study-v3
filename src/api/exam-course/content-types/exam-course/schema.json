@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "exam_courses",
+  "info": {
+    "singularName": "exam-course",
+    "pluralName": "exam-courses",
+    "displayName": "Exam Course",
+    "description": "Main exam courses in the e-learning system"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "code": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true,
+      "unique": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "subjects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::subject.subject",
+      "mappedBy": "examCourses"
+    }
+  }
+}
